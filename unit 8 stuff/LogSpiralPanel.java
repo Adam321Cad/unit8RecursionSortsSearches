@@ -12,13 +12,16 @@ public class LogSpiralPanel extends JPanel
 
    public void paintComponent(Graphics g)
    {
-       Graphics2D g2 = (Graphics2D) g;
+      Graphics2D g2 = (Graphics2D) g;
       double height = getHeight()-150;
       double width = height *GOLDEN_MEAN;
       Rectangle2D.Double r = new Rectangle2D.Double(50,50,width, height);
-      g2.draw(r);
-      recursiveDraw(g2, 150,150,width,height);
-   }
+      //Rectangle2D.Double r2 = new Rectangle2D.Double((50+width)-height,50,height,height);
+      //g2.draw(r2);
+      //g2.draw(r);
+      this.drawArc(g,(50+width)-height,50,height, 0);
+      this.recursiveDraw(g,g2, calculateNewX(50,0,width,height),calculateNewY(50,0,width,height),width,90);
+    }
    
    /**
       Method that recursively draws a logarithmic spiral.
@@ -31,19 +34,22 @@ public class LogSpiralPanel extends JPanel
    */
   
   
-   private void recursiveDraw(Graphics2D g2, double x, double y, double side, int angle)
+   private void recursiveDraw(Graphics g,Graphics2D g2, double x, double y, double side, int angle)
    {
       // Recursion ending condition: when the side is very small
       //do{
 
       // Draw the current square and arc
-      Rectangle2D.Double r = new Rectangle2D.Double(x,y,side,angle);
-      g2.draw(r);
+      Rectangle2D.Double r1 = new Rectangle2D.Double(x,y,side,side);
+      g2.draw(r1);
+      //Rectangle2D.Double r2 = new Rectangle2D.Double(10,10, 100,100);
+      //g2.draw(r2);
+      this.drawArc(g,x,y,side,angle);
 
       /* Continue drawing the spiral recursively: calculate the new side 
          size, calculate the new (x, y) coordinates and the new angle. Then, 
          call "recursiveDraw" again. */
-        //}while(side*angle >.5
+        //}while(side*angle >.5);
          
    }
   
