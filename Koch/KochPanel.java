@@ -63,6 +63,8 @@ public class KochPanel extends JPanel
          drawFractal (order-1, x4, y4, x5, y5, page);
       }
    }
+   
+   
 
    //-----------------------------------------------------------------
    //  Performs the initial calls to the drawFractal method.
