@@ -3,7 +3,8 @@ import javax.swing.JPanel;
 
 public class fractalTree extends JPanel
 {
-    private final double angle1 = Math.PI/6;
+    //private double bla = 6;
+    private double angle1 = Math.PI/9;
     //private int length = 100;
     private final int decrease =-5;
     int oldx = 500;
@@ -33,6 +34,7 @@ public class fractalTree extends JPanel
         int length = prevLength +decrease;
         if(length <=50){
             int bifhae = 1;
+            //bla++;
         }else{
             double rightAngle = prevAngle-angle1;
             double leftAngle = prevAngle+angle1;
